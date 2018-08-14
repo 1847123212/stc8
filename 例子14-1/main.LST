@@ -1,0 +1,115 @@
+C51 COMPILER V9.56.0.0   MAIN                                                              09/26/2017 22:07:29 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include "reg51.h"
+   2          #define FOSC  18432000L
+   3          #define BAUD 115200
+   4          sfr AUXR  =0x8E;
+   5          sfr TH2   =0xD6;
+   6          sfr TL2   =0xD7;
+   7          sfr P6    =0xE8;
+   8          sbit P60   =P6^0;
+   9          sbit P61   =P6^1;
+  10          sbit P62   =P6^2;
+  11          sbit P63   =P6^3;
+  12          sbit P64   =P6^4;
+  13          sbit P65   =P6^5;
+  14          sbit P66   =P6^6;
+  15          sbit P67   =P6^7;
+  16          
+  17          bit busy=0;
+  18          xdata char menu[]={"\r\n------main menu---------------"
+  19                             "\r\n     input 0:  Control LED0 "
+  20                             "\r\n     input 1:  Control LED1 "
+  21                             "\r\n     input 2:  Control LED2 "
+  22                             "\r\n     input 3:  Control LED3 "
+  23                             "\r\n     input 4:  Control LED4 "
+  24                             "\r\n     input 5:  Control LED5 "
+  25                             "\r\n     input 6:  Control LED6 "
+  26                             "\r\n     input 7:  Control LED7 "
+  27                             "\r\n     other  :  Exit Program"
+  28                             "\r\n------end menu----------------"
+  29                      };
+  30            
+  31          void SendData(unsigned char dat)
+  32          {
+  33   1        while(busy);
+  34   1        SBUF=dat;
+  35   1        busy=1;
+  36   1      }
+  37          void SendString(char *s)
+  38          {
+  39   1        while(*s!='\0')
+  40   1          SendData(*s++);
+  41   1      }
+  42          void uart1() interrupt 4
+  43          {
+  44   1        if(RI)
+  45   1          RI=0;
+  46   1        if(TI)
+  47   1          TI=0;
+  48   1          busy=0;
+  49   1      }
+  50              
+  51          void main()
+  52          {
+  53   1        unsigned char c;
+  54   1        P6=0;
+  55   1        SCON=0x50;
+C51 COMPILER V9.56.0.0   MAIN                                                              09/26/2017 22:07:29 PAGE 2   
+
+  56   1        AUXR=0x14;
+  57   1        AUXR|=0x01;
+  58   1        TL2=(65536-((FOSC/4)/BAUD));
+  59   1        TH2=(65536-((FOSC/4)/BAUD))>>8;
+  60   1        ES=1;
+  61   1        EA=1;
+  62   1         SendString(&menu);
+  63   1         while(1){
+  64   2           if(RI==1)
+  65   2           {
+  66   3             c=SBUF;
+  67   3             if(c==0x30)
+  68   3                 P60=!P60;
+  69   3             else if(c==0x31)
+  70   3                 P61=!P61;
+  71   3             else if(c==0x32)
+  72   3                 P62=!P62;
+  73   3             else if(c==0x33)
+  74   3                 P63=!P63;
+  75   3             else if(c==0x34)
+  76   3                 P64=!P64;
+  77   3             else if(c==0x35)
+  78   3                 P65=!P65;
+  79   3             else if(c==0x36)
+  80   3                 P66=!P66;
+  81   3             else if(c==0x37)
+  82   3                 P67=!P67;
+  83   3             else 
+  84   3             {
+  85   4                 SendString("\r\n Exit Program");
+  86   4             }
+  87   3           }    
+  88   2         }
+  89   1      }
+  90            
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    161    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =    334    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
