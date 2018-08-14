@@ -1,0 +1,49 @@
+C51 COMPILER V9.56.0.0   MAIN                                                              09/18/2017 16:01:53 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include "reg51.h"
+   2          #define TIMS 3036
+   3          #define CLKDIV (*(unsigned char volatile xdata *)0xfe01) 
+   4          sfr IE2 =0xAF;
+   5          sfr TH3 =0xD4;
+   6          sfr TL3 =0xD5;
+   7          sfr T4T3M =0xD1;
+   8          sfr P6=0xE8;
+   9          sfr P_SW2=0xba;
+  10          void timer_3() interrupt 19
+  11          {
+  12   1        P6=~P6;
+  13   1      }
+  14          main()
+  15          {
+  16   1        P_SW2=0x80;
+  17   1        CLKDIV=0x10;
+  18   1        P_SW2=0x00;
+  19   1        TL3=TIMS;
+  20   1        TH3=TIMS>>8;
+  21   1        T4T3M=0x08;
+  22   1        P6=0;
+  23   1        IE2|=0x20;
+  24   1        EA=1;
+  25   1        while(1);
+  26   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     34    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
