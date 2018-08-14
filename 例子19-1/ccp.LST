@@ -1,0 +1,45 @@
+C51 COMPILER V9.56.0.0   CCP                                                               10/06/2017 15:05:13 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE CCP
+OBJECT MODULE PLACED IN ccp.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ccp.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include "ccp.h"
+   2          
+   3          void sel_ccp_pin(u8 a)
+   4          {
+   5   1          P_SW1|=(a <<4);
+   6   1      }
+   7          void stop_pca(void)
+   8          {
+   9   1          CCON=0;
+  10   1      }
+  11          void clear_pca_counter(void)
+  12          {
+  13   1          CL=0;
+  14   1          CH=0;
+  15   1      }
+  16          void set_pca_mode(bit cidl,u8 cps, bit ecf)
+  17          {
+  18   1        if(cidl==1) CMOD|=0X80;
+  19   1        else CMOD &=0x7F;
+  20   1        CMOD|=(cps<<1);
+  21   1        CMOD|=ecf;
+  22   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     41    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       2
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
