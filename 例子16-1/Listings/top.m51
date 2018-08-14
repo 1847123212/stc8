@@ -1,0 +1,151 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/03/2017  16:13:25  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\pwm_register.obj TO .\Objects\top PRINT (.\Listings\top.m51) R
+>> AMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\pwm_register.obj (PWM_REGISTER)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\top (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0025H     UNIT         ?PR?MAIN?MAIN
+            CODE    0028H     000FH     UNIT         ?PR?_SET_PWM0_T1_T2_POINT?PWM_REGISTER
+            CODE    0037H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0043H     0009H     UNIT         ?PR?_SET_PWM_PERIOD?PWM_REGISTER
+            CODE    004CH     0007H     UNIT         ?PR?_PWM_CLOCK_SPEED?PWM_REGISTER
+            CODE    0053H     0007H     UNIT         ?PR?ENABLE_PWM0?PWM_REGISTER
+            CODE    005AH     0004H     UNIT         ?PR?ENABLE_XSFR?PWM_REGISTER
+            CODE    005EH     0004H     UNIT         ?PR?ENABLE_PWM?PWM_REGISTER
+            CODE    0062H     0004H     UNIT         ?PR?DISABLE_XSFR?PWM_REGISTER
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\top (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?ENABLE_XSFR?PWM_REGISTER
+  +--> ?PR?_PWM_CLOCK_SPEED?PWM_REGISTER
+  +--> ?PR?_SET_PWM_PERIOD?PWM_REGISTER
+  +--> ?PR?_SET_PWM0_T1_T2_POINT?PWM_REGISTER
+  +--> ?PR?ENABLE_PWM0?PWM_REGISTER
+  +--> ?PR?DISABLE_XSFR?PWM_REGISTER
+  +--> ?PR?ENABLE_PWM?PWM_REGISTER
+
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/03/2017  16:13:25  PAGE 2
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\top (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0003H         PUBLIC        main
+  -------         PROC          MAIN
+  C:0003H         LINE#         3
+  C:0003H         LINE#         4
+  C:0003H         LINE#         5
+  C:0006H         LINE#         6
+  C:000BH         LINE#         7
+  C:0012H         LINE#         8
+  C:001DH         LINE#         9
+  C:0020H         LINE#         10
+  C:0023H         LINE#         11
+  C:0026H         LINE#         12
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        PWM_REGISTER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0062H         PUBLIC        disable_xsfr
+  D:00FEH         PUBLIC        PWMCR
+  D:00BAH         PUBLIC        P_SW2
+  C:0028H         PUBLIC        _set_pwm0_T1_T2_point
+  C:005AH         PUBLIC        enable_xsfr
+  C:005EH         PUBLIC        enable_pwm
+  C:004CH         PUBLIC        _pwm_clock_speed
+  C:0053H         PUBLIC        enable_pwm0
+  C:0043H         PUBLIC        _set_pwm_period
+  -------         PROC          ENABLE_XSFR
+  C:005AH         LINE#         3
+  C:005AH         LINE#         4
+  C:005AH         LINE#         5
+  C:005DH         LINE#         6
+  -------         ENDPROC       ENABLE_XSFR
+  -------         PROC          _PWM_CLOCK_SPEED
+  D:0007H         SYMBOL        a
+  C:004CH         LINE#         8
+  C:004CH         LINE#         9
+  C:004CH         LINE#         10
+  C:0052H         LINE#         11
+  -------         ENDPROC       _PWM_CLOCK_SPEED
+  -------         PROC          _SET_PWM_PERIOD
+  D:0006H         SYMBOL        a
+  C:0043H         LINE#         13
+  C:0043H         LINE#         14
+  C:0043H         LINE#         15
+  C:004BH         LINE#         16
+  -------         ENDPROC       _SET_PWM_PERIOD
+  -------         PROC          _SET_PWM0_T1_T2_POINT
+  D:0006H         SYMBOL        h
+  D:0004H         SYMBOL        l
+  C:0028H         LINE#         18
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/03/2017  16:13:25  PAGE 3
+
+
+  C:0028H         LINE#         19
+  C:0028H         LINE#         20
+  C:0030H         LINE#         21
+  C:0036H         LINE#         22
+  -------         ENDPROC       _SET_PWM0_T1_T2_POINT
+  -------         PROC          ENABLE_PWM0
+  C:0053H         LINE#         24
+  C:0053H         LINE#         25
+  C:0053H         LINE#         26
+  C:0059H         LINE#         27
+  -------         ENDPROC       ENABLE_PWM0
+  -------         PROC          ENABLE_PWM
+  C:005EH         LINE#         29
+  C:005EH         LINE#         30
+  C:005EH         LINE#         31
+  C:0061H         LINE#         32
+  -------         ENDPROC       ENABLE_PWM
+  -------         PROC          DISABLE_XSFR
+  C:0062H         LINE#         34
+  C:0062H         LINE#         35
+  C:0062H         LINE#         36
+  C:0065H         LINE#         37
+  -------         ENDPROC       DISABLE_XSFR
+  -------         ENDMOD        PWM_REGISTER
+
+Program Size: data=9.0 xdata=0 code=102
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
