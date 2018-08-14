@@ -1,0 +1,478 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/05/2017  17:53:02  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE main.obj, led1602.obj TO top RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  led1602.obj (LED1602)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPDIV)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FCAST)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (PRINTF)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPROUND)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPCONVERT)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPADD)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FTNPWR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LNEG)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (PUTCHAR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  top (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0009H     UNIT         ?DT?MAIN
+                    0011H     000FH                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+            BIT     0021H.1   0000H.1   UNIT         ?BI?MAIN
+                    0021H.2   0000H.6                *** GAP ***
+            DATA    0022H     001CH     UNIT         _DATA_GROUP_
+            IDATA   003EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+                    002AH     0001H                  *** GAP ***
+            CODE    002BH     0003H     ABSOLUTE     
+            CODE    002EH     0564H     UNIT         ?C?LIB_CODE
+            CODE    0592H     046FH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    0A01H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0A8DH     0065H     UNIT         ?PR?ADC_INT?MAIN
+            CODE    0AF2H     005EH     UNIT         ?PR?MAIN?MAIN
+            CODE    0B50H     002AH     UNIT         ?PR?GET_VOLTAGE_VALUE?LED1602
+            CODE    0B7AH     001CH     UNIT         ?CO?MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2017  17:53:02  PAGE 2
+
+
+            CODE    0B96H     0016H     UNIT         ?PR?_LCDSHOWSTR?LED1602
+            CODE    0BACH     0014H     UNIT         ?PR?LCDWAIT?LED1602
+            CODE    0BC0H     0014H     UNIT         ?PR?LCDINIT?LED1602
+            CODE    0BD4H     0012H     UNIT         ?PR?_LCDSETCURSOR?LED1602
+            CODE    0BE6H     000EH     UNIT         ?PR?_LCDWRITECMD?LED1602
+            CODE    0BF4H     000EH     UNIT         ?PR?_LCDWRITEDATA?LED1602
+            CODE    0C02H     000DH     UNIT         ?PR?DELAY?LED1602
+            CODE    0C0FH     000BH     UNIT         ?PR?_SET_ADC_RESULT_FORMAT?LED1602
+            CODE    0C1AH     0009H     UNIT         ?C_INITSEG
+            CODE    0C23H     0006H     UNIT         ?PR?CLEAR_ADC_RESULT?LED1602
+            CODE    0C29H     0006H     UNIT         ?PR?_SET_ADC_CHANNEL?LED1602
+            CODE    0C2FH     0006H     UNIT         ?PR?_SET_ADC_CONV_SPEED?LED1602
+            CODE    0C35H     0005H     UNIT         ?PR?_SET_P0_MODE?LED1602
+            CODE    0C3AH     0005H     UNIT         ?PR?_SET_P2_MODE?LED1602
+            CODE    0C3FH     0004H     UNIT         ?PR?ADC_POWER_ON?LED1602
+            CODE    0C43H     0004H     UNIT         ?PR?ADC_START?LED1602
+
+
+
+OVERLAY MAP OF MODULE:   top (MAIN)
+
+
+SEGMENT                                       BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT                      START    LENGTH     START    LENGTH
+------------------------------------------------------------------------------
+?PR?ADC_INT?MAIN                           -----    -----      -----    -----
+  +--> ?PR?GET_VOLTAGE_VALUE?LED1602
+  +--> ?CO?MAIN
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?ADC_START?LED1602
+
+?PR?PRINTF?PRINTF                          0020H.0  0001H.1    0022H    001CH
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                              -----    -----      -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                              -----    -----      -----    -----
+  +--> ?PR?_SET_P0_MODE?LED1602
+  +--> ?PR?_SET_P2_MODE?LED1602
+  +--> ?PR?CLEAR_ADC_RESULT?LED1602
+  +--> ?PR?_SET_ADC_RESULT_FORMAT?LED1602
+  +--> ?PR?_SET_ADC_CONV_SPEED?LED1602
+  +--> ?PR?LCDWAIT?LED1602
+  +--> ?PR?LCDINIT?LED1602
+  +--> ?PR?ADC_POWER_ON?LED1602
+  +--> ?PR?DELAY?LED1602
+  +--> ?PR?_SET_ADC_CHANNEL?LED1602
+  +--> ?PR?ADC_START?LED1602
+  +--> ?CO?MAIN
+  +--> ?PR?_LCDSHOWSTR?LED1602
+
+?PR?LCDWAIT?LED1602                        -----    -----      -----    -----
+  +--> ?PR?DELAY?LED1602
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2017  17:53:02  PAGE 3
+
+
+
+?PR?LCDINIT?LED1602                        -----    -----      -----    -----
+  +--> ?PR?_LCDWRITECMD?LED1602
+
+?PR?_LCDWRITECMD?LED1602                   -----    -----      -----    -----
+  +--> ?PR?LCDWAIT?LED1602
+  +--> ?PR?DELAY?LED1602
+
+?PR?_LCDSHOWSTR?LED1602                    -----    -----      -----    -----
+  +--> ?PR?_LCDSETCURSOR?LED1602
+  +--> ?PR?_LCDWRITEDATA?LED1602
+
+?PR?_LCDSETCURSOR?LED1602                  -----    -----      -----    -----
+  +--> ?PR?_LCDWRITECMD?LED1602
+
+?PR?_LCDWRITEDATA?LED1602                  -----    -----      -----    -----
+  +--> ?PR?LCDWAIT?LED1602
+  +--> ?PR?DELAY?LED1602
+
+
+
+SYMBOL TABLE OF MODULE:  top (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  B:00A8H.7       PUBLIC        EA
+  B:00A8H.5       PUBLIC        EADC
+  D:00A8H         PUBLIC        IE
+  B:0021H.1       PUBLIC        flag
+  C:0AF2H         PUBLIC        main
+  D:00BCH         PUBLIC        ADC_CONTR
+  D:0008H         PUBLIC        tstr
+  C:0A8DH         PUBLIC        adc_int
+  D:000DH         PUBLIC        voltage
+  -------         PROC          ADC_INT
+  C:0A8DH         LINE#         6
+  C:0AAAH         LINE#         8
+  C:0AADH         LINE#         9
+  C:0AB8H         LINE#         10
+  C:0AD2H         LINE#         11
+  C:0AD4H         LINE#         12
+  C:0AD7H         LINE#         13
+  -------         ENDPROC       ADC_INT
+  -------         PROC          MAIN
+  C:0AF2H         LINE#         15
+  C:0AF2H         LINE#         16
+  C:0AF2H         LINE#         17
+  C:0AF8H         LINE#         18
+  C:0AFEH         LINE#         19
+  C:0B01H         LINE#         20
+  C:0B06H         LINE#         21
+  C:0B0BH         LINE#         22
+  C:0B0DH         LINE#         23
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2017  17:53:02  PAGE 4
+
+
+  C:0B0FH         LINE#         24
+  C:0B12H         LINE#         25
+  C:0B15H         LINE#         26
+  C:0B18H         LINE#         27
+  C:0B1BH         LINE#         28
+  C:0B20H         LINE#         29
+  C:0B23H         LINE#         30
+  C:0B2FH         LINE#         31
+  C:0B3CH         LINE#         32
+  C:0B3CH         LINE#         33
+  C:0B3CH         LINE#         34
+  C:0B3FH         LINE#         35
+  C:0B3FH         LINE#         36
+  C:0B41H         LINE#         37
+  C:0B4EH         LINE#         38
+  C:0B4EH         LINE#         39
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        LED1602
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0093H         PUBLIC        P0M1
+  D:0096H         PUBLIC        P2M0
+  C:0BF4H         PUBLIC        _lcdwritedata
+  D:0095H         PUBLIC        P2M1
+  D:00A0H         PUBLIC        P2
+  D:0080H         PUBLIC        LCD1602_DB
+  D:00A8H         PUBLIC        IE
+  C:0C08H         PUBLIC        delay
+  D:00BDH         PUBLIC        ADC_RES
+  C:0C29H         PUBLIC        _set_adc_channel
+  C:0C23H         PUBLIC        clear_adc_result
+  C:0B50H         PUBLIC        get_voltage_value
+  C:0BE6H         PUBLIC        _lcdwritecmd
+  D:00DEH         PUBLIC        ADCCFG
+  B:00A0H.5       PUBLIC        LCD1602_RS
+  C:0BD4H         PUBLIC        _lcdsetcursor
+  B:00A0H.6       PUBLIC        LCD1602_RW
+  D:00BCH         PUBLIC        ADC_CONTR
+  C:0C35H         PUBLIC        _set_P0_mode
+  C:0C3AH         PUBLIC        _set_P2_mode
+  C:0C43H         PUBLIC        adc_start
+  B:00A0H.7       PUBLIC        LCD1602_E
+  C:0C0FH         PUBLIC        _set_adc_result_format
+  C:0B96H         PUBLIC        _lcdshowstr
+  D:00BEH         PUBLIC        ADC_RESL
+  C:0C2FH         PUBLIC        _set_adc_conv_speed
+  C:0BC0H         PUBLIC        lcdinit
+  C:0BACH         PUBLIC        lcdwait
+  C:0C3FH         PUBLIC        adc_power_on
+  D:0094H         PUBLIC        P0M0
+  -------         PROC          L?0025
+  -------         ENDPROC       L?0025
+  -------         PROC          DELAY
+  C:0C08H         LINE#         3
+  C:0C08H         LINE#         4
+  C:0C08H         LINE#         5
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2017  17:53:02  PAGE 5
+
+
+  C:0C09H         LINE#         6
+  C:0C0AH         LINE#         7
+  C:0C0BH         LINE#         8
+  C:0C0CH         LINE#         9
+  C:0C0DH         LINE#         10
+  C:0C0EH         LINE#         11
+  -------         ENDPROC       DELAY
+  -------         PROC          LCDWAIT
+  C:0BACH         LINE#         12
+  C:0BACH         LINE#         13
+  C:0BACH         LINE#         14
+  C:0BAFH         LINE#         15
+  C:0BB2H         LINE#         16
+  C:0BB4H         LINE#         17
+  C:0BB6H         LINE#         18
+  C:0BB8H         LINE#         19
+  C:0BBDH         LINE#         20
+  C:0BBFH         LINE#         21
+  -------         ENDPROC       LCDWAIT
+  -------         PROC          _LCDWRITECMD
+  D:0007H         SYMBOL        cmd
+  C:0BE6H         LINE#         23
+  C:0BE6H         LINE#         24
+  C:0BE6H         LINE#         25
+  C:0BE9H         LINE#         26
+  C:0BECH         LINE#         27
+  C:0BEEH         LINE#         28
+  C:0BEEH         LINE#         29
+  C:0BEEH         LINE#         30
+  C:0BEEH         LINE#         31
+  C:0BF1H         LINE#         32
+  C:0BF3H         LINE#         33
+  -------         ENDPROC       _LCDWRITECMD
+  -------         PROC          _LCDWRITEDATA
+  D:0007H         SYMBOL        dat
+  C:0BF4H         LINE#         35
+  C:0BF4H         LINE#         36
+  C:0BF4H         LINE#         37
+  C:0BF7H         LINE#         38
+  C:0BFAH         LINE#         39
+  C:0BFCH         LINE#         40
+  C:0BFCH         LINE#         41
+  C:0BFCH         LINE#         42
+  C:0BFCH         LINE#         43
+  C:0BFFH         LINE#         44
+  C:0C01H         LINE#         45
+  -------         ENDPROC       _LCDWRITEDATA
+  -------         PROC          LCDINIT
+  C:0BC0H         LINE#         47
+  C:0BC0H         LINE#         48
+  C:0BC0H         LINE#         49
+  C:0BC5H         LINE#         50
+  C:0BCAH         LINE#         51
+  C:0BCFH         LINE#         52
+  -------         ENDPROC       LCDINIT
+  -------         PROC          _LCDSETCURSOR
+  D:0007H         SYMBOL        x
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2017  17:53:02  PAGE 6
+
+
+  D:0005H         SYMBOL        y
+  -------         DO            
+  D:0006H         SYMBOL        address
+  -------         ENDDO         
+  C:0BD4H         LINE#         55
+  C:0BD4H         LINE#         56
+  C:0BD4H         LINE#         58
+  C:0BD7H         LINE#         59
+  C:0BDBH         LINE#         61
+  C:0BDFH         LINE#         62
+  -------         ENDPROC       _LCDSETCURSOR
+  -------         PROC          _LCDSHOWSTR
+  D:0007H         SYMBOL        x
+  D:0005H         SYMBOL        y
+  D:0001H         SYMBOL        str
+  C:0B96H         LINE#         65
+  C:0B96H         LINE#         67
+  C:0B96H         LINE#         68
+  C:0B99H         LINE#         69
+  C:0B9FH         LINE#         70
+  C:0B9FH         LINE#         71
+  C:0BA2H         LINE#         72
+  C:0BA9H         LINE#         73
+  C:0BABH         LINE#         74
+  -------         ENDPROC       _LCDSHOWSTR
+  -------         PROC          _SET_P0_MODE
+  D:0007H         SYMBOL        a
+  D:0005H         SYMBOL        b
+  C:0C35H         LINE#         76
+  C:0C35H         LINE#         77
+  C:0C35H         LINE#         78
+  C:0C37H         LINE#         79
+  C:0C39H         LINE#         80
+  -------         ENDPROC       _SET_P0_MODE
+  -------         PROC          _SET_P2_MODE
+  D:0007H         SYMBOL        a
+  D:0005H         SYMBOL        b
+  C:0C3AH         LINE#         81
+  C:0C3AH         LINE#         82
+  C:0C3AH         LINE#         83
+  C:0C3CH         LINE#         84
+  C:0C3EH         LINE#         85
+  -------         ENDPROC       _SET_P2_MODE
+  -------         PROC          CLEAR_ADC_RESULT
+  C:0C23H         LINE#         87
+  C:0C23H         LINE#         88
+  C:0C23H         LINE#         89
+  C:0C26H         LINE#         90
+  C:0C28H         LINE#         91
+  -------         ENDPROC       CLEAR_ADC_RESULT
+  -------         PROC          ADC_POWER_ON
+  C:0C3FH         LINE#         93
+  C:0C3FH         LINE#         94
+  C:0C3FH         LINE#         95
+  C:0C42H         LINE#         96
+  -------         ENDPROC       ADC_POWER_ON
+  -------         PROC          ADC_START
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2017  17:53:02  PAGE 7
+
+
+  C:0C43H         LINE#         98
+  C:0C43H         LINE#         99
+  C:0C43H         LINE#         100
+  C:0C46H         LINE#         101
+  -------         ENDPROC       ADC_START
+  -------         PROC          _SET_ADC_CHANNEL
+  D:0007H         SYMBOL        ch
+  C:0C29H         LINE#         104
+  C:0C29H         LINE#         105
+  C:0C29H         LINE#         106
+  C:0C2EH         LINE#         107
+  -------         ENDPROC       _SET_ADC_CHANNEL
+  -------         PROC          _SET_ADC_RESULT_FORMAT
+  D:0007H         SYMBOL        a
+  C:0C0FH         LINE#         109
+  C:0C0FH         LINE#         110
+  C:0C0FH         LINE#         111
+  C:0C12H         LINE#         112
+  C:0C16H         LINE#         114
+  C:0C19H         LINE#         115
+  -------         ENDPROC       _SET_ADC_RESULT_FORMAT
+  -------         PROC          _SET_ADC_CONV_SPEED
+  D:0007H         SYMBOL        a
+  C:0C2FH         LINE#         116
+  C:0C2FH         LINE#         117
+  C:0C2FH         LINE#         118
+  C:0C34H         LINE#         119
+  -------         ENDPROC       _SET_ADC_CONV_SPEED
+  -------         PROC          GET_VOLTAGE_VALUE
+  -------         DO            
+  D:0006H         SYMBOL        tmp
+  D:0004H         SYMBOL        value
+  -------         ENDDO         
+  C:0B50H         LINE#         121
+  C:0B50H         LINE#         122
+  C:0B50H         LINE#         123
+  C:0B50H         LINE#         125
+  C:0B5EH         LINE#         126
+  C:0B79H         LINE#         127
+  C:0B79H         LINE#         128
+  -------         ENDPROC       GET_VOLTAGE_VALUE
+  -------         ENDMOD        LED1602
+
+  -------         MODULE        ?C?FPMUL
+  C:002EH         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+
+  -------         MODULE        ?C?FPDIV
+  C:0137H         PUBLIC        ?C?FPDIV
+  -------         ENDMOD        ?C?FPDIV
+
+  -------         MODULE        ?C?FCAST
+  C:01DEH         PUBLIC        ?C?FCASTC
+  C:01D9H         PUBLIC        ?C?FCASTI
+  C:01D4H         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2017  17:53:02  PAGE 8
+
+
+  -------         MODULE        PRINTF
+  D:0022H         PUBLIC        ?_PRINTF?BYTE
+  D:0022H         PUBLIC        ?_SPRINTF?BYTE
+  C:05F4H         PUBLIC        _PRINTF
+  C:05EEH         PUBLIC        _SPRINTF
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?FPROUND
+  C:025CH         PUBLIC        ?C?FPROUND
+  -------         ENDMOD        ?C?FPROUND
+
+  -------         MODULE        ?C?FPCONVERT
+  C:028BH         PUBLIC        ?C?FPCONVERT
+  -------         ENDMOD        ?C?FPCONVERT
+
+  -------         MODULE        ?C?FPADD
+  C:0395H         PUBLIC        ?C?FPADD
+  C:0391H         PUBLIC        ?C?FPSUB
+  -------         ENDMOD        ?C?FPADD
+
+  -------         MODULE        ?C?FTNPWR
+  C:04B6H         PUBLIC        ?C?FTNPWR
+  -------         ENDMOD        ?C?FTNPWR
+
+  -------         MODULE        ?C?CLDPTR
+  C:04F6H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:050FH         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:053CH         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?LNEG
+  C:054EH         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:055CH         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:056CH         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:0003H         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+Program Size: data=47.2 xdata=0 code=3142
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
