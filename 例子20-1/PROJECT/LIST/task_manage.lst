@@ -1,0 +1,74 @@
+C51 COMPILER V9.56.0.0   TASK_MANAGE                                                       10/21/2017 15:51:50 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE TASK_MANAGE
+OBJECT MODULE PLACED IN .\OUTPUT\task_manage.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\APP\task_manage.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND P
+                    -RINT(.\LIST\task_manage.lst) TABS(2) OBJECT(.\OUTPUT\task_manage.obj)
+
+line level    source
+
+   1          
+   2          /* Includes -----------------------------------------------------------------*/
+   3          #include "includes.h"
+   4          
+   5          //////////////////////////////////////////////////////////
+   6          OS_STK  TASK_START_STK[MaxStkSize+1]; //»ŒŒÒ∂—’ª…˘√˜
+   7          
+   8          //////////////////////////////////////////////////////////
+   9          void TaskCreateOther(void) reentrant;             //”√’‚∏ˆ∫Ø ˝¿¥¥¥Ω®∆‰À˚»ŒŒÒ
+  10          
+  11          
+  12          //////////////////////////////////////////////////////////
+  13          //∆ º»ŒŒÒ ”÷’‚∏ˆ»ŒŒÒ‘Ÿ¥¥Ω®∆‰À˚»ŒŒÒ
+  14          void TaskStart(void * ppdata) reentrant
+  15          {
+  16   1        ppdata = ppdata;
+  17   1        
+  18   1          ET0=1;                              // πƒ‹ ±÷”Ω⁄≈ƒ÷–∂œ
+  19   1          
+  20   1          // πƒ‹ucos µƒÕ≥º∆»ŒŒÒ
+  21   1          #if (OS_TASK_STAT_EN > 0)
+                  OSStatInit();                       //Õ≥º∆»ŒŒÒ≥ı ºªØ∫Ø ˝   
+                  #endif  
+  24   1          
+  25   1          bsp();                              //∞Â‘ÿ”≤º˛≥ı ºªØ
+  26   1          globalvariable();                   //”√ªß”¶”√≥Ã–Ú»´æ÷±‰¡ø≥ı ºªØ
+  27   1          TaskCreateOther();                  //Ω®¡¢∆‰À˚µƒ»ŒŒÒ
+  28   1          OSStart();
+  29   1          OSTaskSuspend(OS_PRIO_SELF);      //suspend but not delete π“∆»ŒŒÒ 
+  30   1      }
+  31          
+  32          /////////////////////////////////////////////////////////////////////////////
+  33          //¥¥Ω®∆‰À˚À˘”–»ŒŒÒ ‘⁄’‚¿ÔŒ“Ω®¡¢¡À∏ˆLED…¡À∏µƒ»ŒŒÒµ±¿˝◊”
+  34          void TaskCreateOther(void) reentrant
+  35          {  
+  36   1          OSTaskCreate(Task1, (void * )0, (OS_STK *)&TASK_1_STK[0], TASK_1_Prio);                     //LEDœ‘ æ»
+             -ŒŒÒ1
+  37   1          OSTaskCreate(Task2, (void * )0, (OS_STK *)&TASK_2_STK[0], TASK_2_Prio);                     //LEDœ‘ æ»
+             -ŒŒÒ2
+  38   1      }
+  39          
+  40          
+  41                
+  42          
+  43          
+  44          
+  45          
+  46          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    182    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =    101    ----
+C51 COMPILER V9.56.0.0   TASK_MANAGE                                                       10/21/2017 15:51:50 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

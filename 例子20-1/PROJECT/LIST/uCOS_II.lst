@@ -1,0 +1,51 @@
+C51 COMPILER V9.56.0.0   UCOS_II                                                           10/21/2017 15:51:50 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE UCOS_II
+OBJECT MODULE PLACED IN .\OUTPUT\uCOS_II.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\uCOSII\uCOS_II.C LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PR
+                    -INT(.\LIST\uCOS_II.lst) TABS(2) OBJECT(.\OUTPUT\uCOS_II.obj)
+
+line level    source
+
+   1          /*
+   2          *********************************************************************************************************
+   3          *                                                uC/OS-II
+   4          *                                          The Real-Time Kernel
+   5          *
+   6          *                          (c) Copyright 1992-2002, Jean J. Labrosse, Weston, FL
+   7          *                                           All Rights Reserved
+   8          *
+   9          * File : uCOS_II.C
+  10          * By   : Jean J. Labrosse
+  11          *********************************************************************************************************
+  12          */
+  13          
+  14          #define  OS_GLOBALS                           /* Declare GLOBAL variables                              */
+  15          //#include "includes.h"
+  16          
+  17          
+  18          #define  OS_MASTER_FILE                       /* Prevent the following files from including includes.h */
+  19          //#include "SOURCE\os_core.c"
+  20          //#include "SOURCE\os_flag.c"
+  21          //#include "SOURCE\os_mbox.c"
+  22          //#include "SOURCE\os_mem.c"
+  23          //#include "SOURCE\os_mutex.c"
+  24          //#include "SOURCE\os_q.c"
+  25          //#include "SOURCE\os_sem.c"
+  26          //#include "SOURCE\os_task.c"
+  27          //#include "SOURCE\os_time.c"
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

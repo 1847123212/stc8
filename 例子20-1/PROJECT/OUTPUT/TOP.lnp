@@ -1,0 +1,23 @@
+".\OUTPUT\led.obj",
+".\OUTPUT\main.obj",
+".\OUTPUT\task_manage.obj",
+".\OUTPUT\bsp.obj",
+".\OUTPUT\globalvariable.obj",
+".\OUTPUT\uCOS_II.obj",
+".\OUTPUT\STARTUP.obj",
+".\OUTPUT\OS_SEM.obj",
+".\OUTPUT\OS_Q.obj",
+".\OUTPUT\OS_MUTEX.obj",
+".\OUTPUT\OS_MEM.obj",
+".\OUTPUT\OS_MBOX.obj",
+".\OUTPUT\OS_FLAG.obj",
+".\OUTPUT\OS_CPU_A.obj",
+".\OUTPUT\My_OS_TIME.obj",
+".\OUTPUT\My_OS_TASK.obj",
+".\OUTPUT\My_OS_CPU_C.obj",
+".\OUTPUT\My_OS_CORE.obj" 
+TO ".\OUTPUT\TOP" 
+PRINT(".\LIST\TOP.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 
+CODE( 0X0000-0XEFF8 )
+XDATA( 0X0000-0X0EFF )
