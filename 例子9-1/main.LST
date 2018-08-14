@@ -1,0 +1,132 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 09/09/2017 23:27:23 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE main.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+
+                       2     ;*************  ¹¦ÄÜËµÃ÷        **************
+
+                       3     
+
+                       4     ;³ÌÐòÊ¹ÓÃP6 À´ÏÔÊ¾0~255µÄ¼ÆÊÖµ
+
+                       5     
+
+                       6     ;******************************************
+
+                       7     ;******************************************
+
+                       8     ;¶¨ÒåP6¶Ë¿ÚµÄµØÖ·
+
+  00E8                 9     P6        DATA 0e8H
+
+                      10     ;******************************************
+
+----                  11         CSEG AT  0x0000
+
+0000 020000   F       12             LJMP main
+
+                      13             my_prog  SEGMENT CODE
+
+----                  14                          RSEG my_prog
+
+0100                  15                  ORG 0x100          
+
+0100                  16     main:
+
+                      17             USING   0
+
+0100                  18     LOOP1:
+
+0100 78FF             19             MOV     R0,#0FFH
+
+0102                  20     LOOP2:
+
+0102 88E8             21         MOV     P6,R0
+
+0104                  22     dly:
+
+0104 1100     F       23             ACALL   delay
+
+0106 1100     F       24             ACALL   delay
+
+0108 1100     F       25             ACALL   delay
+
+010A 1100     F       26             ACALL   delay
+
+010C 18               27             DEC     R0
+
+010D B8EFF2           28         CJNE    R0,#0EFH,LOOP2
+
+0110 80EE             29         JMP     lOOP1       
+
+                      30     ;********************************
+
+                      31     
+
+                      32     ;//==============================
+
+                      33     ;// º¯Ê: delay
+
+                      34     ;// ÃèÊö: ÑÓÊ±×Ó³ÌÐò¡£
+
+                      35     ;//==============================
+
+0112                  36     delay:
+
+0112 7BFF             37         MOV         R3, #0FFH
+
+0114                  38     delay_1:        
+
+0114 7CFF             39        MOV          R4, #0FFH
+
+                      40              
+
+0116                  41     delay_2:
+
+0116 1C               42             DEC             R4                              ;
+
+0117 BC00FC           43             CJNE    R4,#0,delay_2   ;
+
+011A 1B               44             DEC             R3
+
+011B BB00F6           45             CJNE    R3,#0,delay_1   ;
+
+011E 22               46             RET
+
+                      47             
+
+                      48             END
+
+                             
+
+                             
+
+A51 MACRO ASSEMBLER  MAIN                                                                 09/09/2017 23:27:23 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0112H   R   SEG=MY_PROG
+DELAY_1. . . . . .  C ADDR   0114H   R   SEG=MY_PROG
+DELAY_2. . . . . .  C ADDR   0116H   R   SEG=MY_PROG
+DLY. . . . . . . .  C ADDR   0104H   R   SEG=MY_PROG
+LOOP1. . . . . . .  C ADDR   0100H   R   SEG=MY_PROG
+LOOP2. . . . . . .  C ADDR   0102H   R   SEG=MY_PROG
+MAIN . . . . . . .  C ADDR   0100H   R   SEG=MY_PROG
+MY_PROG. . . . . .  C SEG    011FH       REL=UNIT
+P6 . . . . . . . .  D ADDR   00E8H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
