@@ -1,0 +1,4 @@
+".\Objects\gpio.obj",
+".\Objects\main.obj" 
+TO ".\Objects\top" 
+PRINT(".\Listings\top.m51") RAMSIZE(256) 
