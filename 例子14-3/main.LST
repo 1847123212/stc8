@@ -1,0 +1,154 @@
+C51 COMPILER V9.56.0.0   MAIN                                                              10/08/2017 17:05:53 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(9,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include "register.h"
+   2          
+   3          
+   4          void SendData(u8 dat)
+   5          {
+   6   1        while(busy);
+   7   1        SBUF=dat;
+   8   1        busy=1;
+   9   1      }
+  10          void SendString(char *s)
+  11          {
+  12   1        while(*s!='\0')
+  13   1          SendData(*s++);
+  14   1      }
+  15          
+  16          u16 high_level_time()
+  17          {
+  18   1        TR0=0;
+  19   1        TL0=0;
+  20   1        TH0=0;
+  21   1        TR0=1;
+  22   1        while(P36==1)
+  23   1        {
+  24   2          if(TH0>=0xEE)
+  25   2             break;
+  26   2        }
+  27   1        TR0=0;
+  28   1        return(TH0*256+TL0);
+  29   1      }
+  30          u16 low_level_time()
+  31          {
+  32   1        TR0=0;
+  33   1        TL0=0;
+  34   1        TH0=0;
+  35   1        TR0=1;
+  36   1        while(P36==0)
+  37   1        {
+  38   2          if(TH0>=0xEE)
+  39   2             break;
+  40   2        }
+  41   1        TR0=0;
+  42   1        return(TH0*256+TL0);
+  43   1      }
+  44          void int2() interrupt 10
+  45          {
+  46   1        u8 i,j;
+  47   1        u16 count=0;
+  48   1        u8 dat=0;
+  49   1        
+  50   1        INT_CLKO&=0x00;
+  51   1        count=low_level_time();
+  52   1        
+  53   1        if(count<4000 || count>5000)
+  54   1        {
+  55   2           return;
+C51 COMPILER V9.56.0.0   MAIN                                                              10/08/2017 17:05:53 PAGE 2   
+
+  56   2        }
+  57   1        count=high_level_time();
+  58   1        if(count<2000 || count>2500)
+  59   1        {
+  60   2           return;
+  61   2        }
+  62   1        
+  63   1        for(i=0;i<4;i++)
+  64   1        { 
+  65   2         P36=1;
+  66   2          dat=0;
+  67   2           for(j=0;j<8;j++)
+  68   2            {
+  69   3               count=low_level_time();
+  70   3               if(count<250 || count>300) 
+  71   3                  return;
+  72   3               count=high_level_time(); 
+  73   3               if(count>250 && count<300)
+  74   3                  dat>>=1;
+  75   3               else if(count>800 && count<1000)
+  76   3               {
+  77   4                 dat>>=1;
+  78   4                 dat|=0x80;
+  79   4               }
+  80   3               else return;
+  81   3              
+  82   3               
+  83   3             }
+  84   2             irdata[i]=dat;   
+  85   2         }
+  86   1          flag=1;   
+  87   1         INT_CLKO|=0x10;
+  88   1      }
+  89          
+  90          void uart1() interrupt 4
+  91          {
+  92   1        if(RI)
+  93   1          RI=0;
+  94   1        if(TI)
+  95   1          TI=0;
+  96   1          busy=0;
+  97   1      }
+  98              
+  99          void main()
+ 100          {
+ 101   1        u8 k;
+ 102   1        P36=1;
+ 103   1        P3M1=0x00;
+ 104   1        P3M0=0x00;
+ 105   1        TMOD=0x00;
+ 106   1        SCON=0x50;
+ 107   1        AUXR=0x14;
+ 108   1        AUXR|=0x01;
+ 109   1        INT_CLKO|=0x10;
+ 110   1        TL2=(65536-((FOSC/4)/BAUD));
+ 111   1        TH2=(65536-((FOSC/4)/BAUD))>>8;
+ 112   1        ES=1;
+ 113   1        EA=1;
+ 114   1        SendString("\r\n--begin-----\r\n");
+ 115   1         while(1)
+ 116   1          {
+ 117   2           if(flag==1)
+C51 COMPILER V9.56.0.0   MAIN                                                              10/08/2017 17:05:53 PAGE 3   
+
+ 118   2           {
+ 119   3               flag=0;
+ 120   3                SendString("\r\n--Received IR data is-----\r\n");
+ 121   3             for(k=0;k<4;k++)
+ 122   3               SendData(irdata[k]);
+ 123   3               SendString("\r\n");
+ 124   3               INT_CLKO|=0x10;
+ 125   3            }
+ 126   2         }
+ 127   1       }  
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    395    ----
+   CONSTANT SIZE    =     51    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
