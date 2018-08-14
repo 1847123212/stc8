@@ -1,0 +1,4 @@
+"main.obj",
+"ADC_register.obj" 
+TO "top" 
+RAMSIZE(256) 

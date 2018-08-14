@@ -1,0 +1,98 @@
+C51 COMPILER V9.56.0.0   ADC_REGISTER                                                      10/05/2017 14:45:47 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE ADC_REGISTER
+OBJECT MODULE PLACED IN ADC_register.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ADC_register.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include "ADC_register.h"
+   2          void set_P1_drive_mode(u8 a,u8 b)
+   3          {
+   4   1        P1M0=a;
+   5   1        P1M1=b;
+   6   1      }
+   7          void set_timer_2_ini_value(u16 a)
+   8          {
+   9   1        T2L=a-OSC/4/BAUD;
+  10   1        T2H=(a-OSC/4/BAUD)>>8;
+  11   1      }
+  12          
+  13          void SendData(u8 dat)
+  14          {
+  15   1        while(!TI);
+  16   1        TI=0;
+  17   1        SBUF=dat;
+  18   1      }
+  19          
+  20          void clear_adc_result(void)
+  21          {
+  22   1        ADC_RES=0x00;
+  23   1        ADC_RESL=0x00;
+  24   1      }
+  25          
+  26          void adc_power_on(void)
+  27          {
+  28   1         ADC_CONTR=0x80;
+  29   1      }
+  30          
+  31          void adc_start(void)
+  32          {
+  33   1        ADC_CONTR|=0x40;
+  34   1      }
+  35          
+  36          void delay(void)
+  37          {
+  38   1        u16 i;
+  39   1        for(i=0;i<10000;i++)
+  40   1         _nop_();
+  41   1      }
+  42          
+  43          void set_adc_channel(u8 ch)
+  44          {
+  45   1          ADC_CONTR|=(ch & 0x0f);
+  46   1      }
+  47          
+  48          void set_adc_result_format(u8 a)
+  49          {
+  50   1         if(a==0)
+  51   1            ADCCFG &=0xDF;
+  52   1         else
+  53   1            ADCCFG |=0x20;
+  54   1      }
+  55          void set_adc_conv_speed(u8 a)
+C51 COMPILER V9.56.0.0   ADC_REGISTER                                                      10/05/2017 14:45:47 PAGE 2   
+
+  56          {
+  57   1         ADCCFG |=(a &0xf);
+  58   1      }
+  59          
+  60          void set_uart_mode(void)
+  61          {
+  62   1        SCON=0x5A;
+  63   1        AUXR=0x14;
+  64   1        AUXR|=0x01;
+  65   1      }
+  66          float get_voltage_value(void)
+  67          {
+  68   1        u16 tmp=0;
+  69   1        float value;
+  70   1        tmp=(ADC_RES*256+ADC_RESL);
+  71   1        value=(tmp*2.5)/4096;
+  72   1        return value;
+  73   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    147    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

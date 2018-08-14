@@ -1,0 +1,391 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/05/2017  14:45:47  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE main.obj, ADC_register.obj TO top RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  ADC_register.obj (ADC_REGISTER)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPDIV)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPCMP)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FCAST)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (PRINTF)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPROUND)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPCONVERT)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPADD)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FTNPWR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LNEG)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?SLSHR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (PUTCHAR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  top (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000DH     UNIT         ?DT?MAIN
+                    0015H     000BH                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+                    0021H.1   0000H.7                *** GAP ***
+            DATA    0022H     001DH     UNIT         _DATA_GROUP_
+            IDATA   003FH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+                    002AH     0001H                  *** GAP ***
+            CODE    002BH     0003H     ABSOLUTE     
+            CODE    002EH     05F1H     UNIT         ?C?LIB_CODE
+            CODE    061FH     046FH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    0A8EH     00A7H     UNIT         ?PR?ADC_INT?MAIN
+            CODE    0B35H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0BC1H     0031H     UNIT         ?PR?MAIN?MAIN
+            CODE    0BF2H     002AH     UNIT         ?PR?GET_VOLTAGE_VALUE?ADC_REGISTER
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2017  14:45:47  PAGE 2
+
+
+            CODE    0C1CH     001DH     UNIT         ?PR?_SET_TIMER_2_INI_VALUE?ADC_REGISTER
+            CODE    0C39H     0010H     UNIT         ?PR?DELAY?ADC_REGISTER
+            CODE    0C49H     000DH     UNIT         ?C_INITSEG
+            CODE    0C56H     000BH     UNIT         ?PR?_SET_ADC_RESULT_FORMAT?ADC_REGISTER
+            CODE    0C61H     000AH     UNIT         ?PR?SET_UART_MODE?ADC_REGISTER
+            CODE    0C6BH     0008H     UNIT         ?PR?_SENDDATA?ADC_REGISTER
+            CODE    0C73H     0006H     UNIT         ?CO?MAIN
+            CODE    0C79H     0006H     UNIT         ?PR?CLEAR_ADC_RESULT?ADC_REGISTER
+            CODE    0C7FH     0006H     UNIT         ?PR?_SET_ADC_CHANNEL?ADC_REGISTER
+            CODE    0C85H     0006H     UNIT         ?PR?_SET_ADC_CONV_SPEED?ADC_REGISTER
+            CODE    0C8BH     0005H     UNIT         ?PR?_SET_P1_DRIVE_MODE?ADC_REGISTER
+            CODE    0C90H     0004H     UNIT         ?PR?ADC_POWER_ON?ADC_REGISTER
+            CODE    0C94H     0004H     UNIT         ?PR?ADC_START?ADC_REGISTER
+
+
+
+OVERLAY MAP OF MODULE:   top (MAIN)
+
+
+SEGMENT                                            BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT                           START    LENGTH     START    LENGTH
+-----------------------------------------------------------------------------------
+?PR?ADC_INT?MAIN                                -----    -----      0022H    0001H
+  +--> ?PR?GET_VOLTAGE_VALUE?ADC_REGISTER
+  +--> ?CO?MAIN
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?_SENDDATA?ADC_REGISTER
+  +--> ?PR?ADC_START?ADC_REGISTER
+
+?PR?PRINTF?PRINTF                               0020H.0  0001H.1    0023H    001CH
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                                   -----    -----      -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                                   -----    -----      -----    -----
+  +--> ?PR?_SET_P1_DRIVE_MODE?ADC_REGISTER
+  +--> ?PR?_SET_TIMER_2_INI_VALUE?ADC_REGISTER
+  +--> ?PR?CLEAR_ADC_RESULT?ADC_REGISTER
+  +--> ?PR?SET_UART_MODE?ADC_REGISTER
+  +--> ?PR?_SET_ADC_RESULT_FORMAT?ADC_REGISTER
+  +--> ?PR?_SET_ADC_CONV_SPEED?ADC_REGISTER
+  +--> ?PR?ADC_POWER_ON?ADC_REGISTER
+  +--> ?PR?DELAY?ADC_REGISTER
+  +--> ?PR?_SET_ADC_CHANNEL?ADC_REGISTER
+  +--> ?PR?ADC_START?ADC_REGISTER
+
+
+
+SYMBOL TABLE OF MODULE:  top (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2017  14:45:47  PAGE 3
+
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  B:00A8H.5       PUBLIC        EADC
+  D:00A8H         PUBLIC        IE
+  D:0008H         PUBLIC        old_voltage
+  C:0BC1H         PUBLIC        main
+  D:00BCH         PUBLIC        ADC_CONTR
+  D:000CH         PUBLIC        tstr
+  C:0A8EH         PUBLIC        adc_int
+  D:0011H         PUBLIC        voltage
+  -------         PROC          ADC_INT
+  -------         DO            
+  D:0022H         SYMBOL        i
+  -------         ENDDO         
+  C:0A8EH         LINE#         7
+  C:0AABH         LINE#         9
+  C:0AAEH         LINE#         10
+  C:0AB1H         LINE#         11
+  C:0ABCH         LINE#         12
+  C:0AD6H         LINE#         13
+  C:0AEBH         LINE#         14
+  C:0AEBH         LINE#         15
+  C:0AF7H         LINE#         16
+  C:0AFCH         LINE#         17
+  C:0B01H         LINE#         18
+  C:0B04H         LINE#         19
+  C:0B17H         LINE#         20
+  C:0B17H         LINE#         21
+  C:0B1AH         LINE#         22
+  -------         ENDPROC       ADC_INT
+  -------         PROC          MAIN
+  C:0BC1H         LINE#         24
+  C:0BC1H         LINE#         25
+  C:0BC1H         LINE#         26
+  C:0BC8H         LINE#         27
+  C:0BCEH         LINE#         28
+  C:0BD1H         LINE#         29
+  C:0BD4H         LINE#         30
+  C:0BD9H         LINE#         31
+  C:0BDEH         LINE#         32
+  C:0BE0H         LINE#         33
+  C:0BE2H         LINE#         34
+  C:0BE5H         LINE#         35
+  C:0BE8H         LINE#         36
+  C:0BEDH         LINE#         37
+  C:0BF0H         LINE#         38
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ADC_REGISTER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0092H         PUBLIC        P1M0
+  D:0091H         PUBLIC        P1M1
+  C:0C1CH         PUBLIC        _set_timer_2_ini_value
+  C:0C6BH         PUBLIC        _SendData
+  D:00A8H         PUBLIC        IE
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2017  14:45:47  PAGE 4
+
+
+  C:0C39H         PUBLIC        delay
+  D:00BDH         PUBLIC        ADC_RES
+  C:0C7FH         PUBLIC        _set_adc_channel
+  C:0C79H         PUBLIC        clear_adc_result
+  C:0BF2H         PUBLIC        get_voltage_value
+  D:00DEH         PUBLIC        ADCCFG
+  B:0098H.1       PUBLIC        TI
+  D:00BCH         PUBLIC        ADC_CONTR
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  C:0C8BH         PUBLIC        _set_P1_drive_mode
+  C:0C94H         PUBLIC        adc_start
+  D:008EH         PUBLIC        AUXR
+  C:0C56H         PUBLIC        _set_adc_result_format
+  D:00D6H         PUBLIC        T2H
+  D:00D7H         PUBLIC        T2L
+  D:00BEH         PUBLIC        ADC_RESL
+  C:0C85H         PUBLIC        _set_adc_conv_speed
+  C:0C61H         PUBLIC        set_uart_mode
+  C:0C90H         PUBLIC        adc_power_on
+  -------         PROC          _SET_P1_DRIVE_MODE
+  D:0007H         SYMBOL        a
+  D:0005H         SYMBOL        b
+  C:0C8BH         LINE#         2
+  C:0C8BH         LINE#         3
+  C:0C8BH         LINE#         4
+  C:0C8DH         LINE#         5
+  C:0C8FH         LINE#         6
+  -------         ENDPROC       _SET_P1_DRIVE_MODE
+  -------         PROC          _SET_TIMER_2_INI_VALUE
+  D:0006H         SYMBOL        a
+  C:0C1CH         LINE#         7
+  C:0C1CH         LINE#         8
+  C:0C1CH         LINE#         9
+  C:0C21H         LINE#         10
+  C:0C38H         LINE#         11
+  -------         ENDPROC       _SET_TIMER_2_INI_VALUE
+  -------         PROC          _SENDDATA
+  D:0007H         SYMBOL        dat
+  C:0C6BH         LINE#         13
+  C:0C6BH         LINE#         14
+  C:0C6BH         LINE#         15
+  C:0C6EH         LINE#         16
+  C:0C70H         LINE#         17
+  C:0C72H         LINE#         18
+  -------         ENDPROC       _SENDDATA
+  -------         PROC          CLEAR_ADC_RESULT
+  C:0C79H         LINE#         20
+  C:0C79H         LINE#         21
+  C:0C79H         LINE#         22
+  C:0C7CH         LINE#         23
+  C:0C7EH         LINE#         24
+  -------         ENDPROC       CLEAR_ADC_RESULT
+  -------         PROC          ADC_POWER_ON
+  C:0C90H         LINE#         26
+  C:0C90H         LINE#         27
+  C:0C90H         LINE#         28
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2017  14:45:47  PAGE 5
+
+
+  C:0C93H         LINE#         29
+  -------         ENDPROC       ADC_POWER_ON
+  -------         PROC          ADC_START
+  C:0C94H         LINE#         31
+  C:0C94H         LINE#         32
+  C:0C94H         LINE#         33
+  C:0C97H         LINE#         34
+  -------         ENDPROC       ADC_START
+  -------         PROC          DELAY
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0C39H         LINE#         36
+  C:0C39H         LINE#         37
+  C:0C39H         LINE#         39
+  C:0C3CH         LINE#         40
+  C:0C48H         LINE#         41
+  -------         ENDPROC       DELAY
+  -------         PROC          _SET_ADC_CHANNEL
+  D:0007H         SYMBOL        ch
+  C:0C7FH         LINE#         43
+  C:0C7FH         LINE#         44
+  C:0C7FH         LINE#         45
+  C:0C84H         LINE#         46
+  -------         ENDPROC       _SET_ADC_CHANNEL
+  -------         PROC          _SET_ADC_RESULT_FORMAT
+  D:0007H         SYMBOL        a
+  C:0C56H         LINE#         48
+  C:0C56H         LINE#         49
+  C:0C56H         LINE#         50
+  C:0C59H         LINE#         51
+  C:0C5DH         LINE#         53
+  C:0C60H         LINE#         54
+  -------         ENDPROC       _SET_ADC_RESULT_FORMAT
+  -------         PROC          _SET_ADC_CONV_SPEED
+  D:0007H         SYMBOL        a
+  C:0C85H         LINE#         55
+  C:0C85H         LINE#         56
+  C:0C85H         LINE#         57
+  C:0C8AH         LINE#         58
+  -------         ENDPROC       _SET_ADC_CONV_SPEED
+  -------         PROC          SET_UART_MODE
+  C:0C61H         LINE#         60
+  C:0C61H         LINE#         61
+  C:0C61H         LINE#         62
+  C:0C64H         LINE#         63
+  C:0C67H         LINE#         64
+  C:0C6AH         LINE#         65
+  -------         ENDPROC       SET_UART_MODE
+  -------         PROC          GET_VOLTAGE_VALUE
+  -------         DO            
+  D:0006H         SYMBOL        tmp
+  D:0004H         SYMBOL        value
+  -------         ENDDO         
+  C:0BF2H         LINE#         66
+  C:0BF2H         LINE#         67
+  C:0BF2H         LINE#         68
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2017  14:45:47  PAGE 6
+
+
+  C:0BF2H         LINE#         70
+  C:0C00H         LINE#         71
+  C:0C1BH         LINE#         72
+  C:0C1BH         LINE#         73
+  -------         ENDPROC       GET_VOLTAGE_VALUE
+  -------         ENDMOD        ADC_REGISTER
+
+  -------         MODULE        ?C?FPMUL
+  C:002EH         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+
+  -------         MODULE        ?C?FPDIV
+  C:0137H         PUBLIC        ?C?FPDIV
+  -------         ENDMOD        ?C?FPDIV
+
+  -------         MODULE        ?C?FPCMP
+  C:01D6H         PUBLIC        ?C?FPCMP
+  C:01D4H         PUBLIC        ?C?FPCMP3
+  -------         ENDMOD        ?C?FPCMP
+
+  -------         MODULE        ?C?FCAST
+  C:0257H         PUBLIC        ?C?FCASTC
+  C:0252H         PUBLIC        ?C?FCASTI
+  C:024DH         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+  -------         MODULE        PRINTF
+  D:0023H         PUBLIC        ?_PRINTF?BYTE
+  D:0023H         PUBLIC        ?_SPRINTF?BYTE
+  C:0681H         PUBLIC        _PRINTF
+  C:067BH         PUBLIC        _SPRINTF
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?FPROUND
+  C:02D5H         PUBLIC        ?C?FPROUND
+  -------         ENDMOD        ?C?FPROUND
+
+  -------         MODULE        ?C?FPCONVERT
+  C:0304H         PUBLIC        ?C?FPCONVERT
+  -------         ENDMOD        ?C?FPCONVERT
+
+  -------         MODULE        ?C?FPADD
+  C:040EH         PUBLIC        ?C?FPADD
+  C:040AH         PUBLIC        ?C?FPSUB
+  -------         ENDMOD        ?C?FPADD
+
+  -------         MODULE        ?C?FTNPWR
+  C:052FH         PUBLIC        ?C?FTNPWR
+  -------         ENDMOD        ?C?FTNPWR
+
+  -------         MODULE        ?C?CLDPTR
+  C:056FH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0588H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/05/2017  14:45:47  PAGE 7
+
+
+
+  -------         MODULE        ?C?CSTPTR
+  C:05B5H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?LNEG
+  C:05C7H         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+  -------         MODULE        ?C?SLSHR
+  C:05D5H         PUBLIC        ?C?SLSHR
+  -------         ENDMOD        ?C?SLSHR
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:05E9H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:05F9H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:0003H         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+Program Size: data=52.1 xdata=0 code=3223
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
