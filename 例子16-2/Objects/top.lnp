@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\pwm_register.obj" 
+TO ".\Objects\top" 
+PRINT(".\Listings\top.m51") RAMSIZE(256) 

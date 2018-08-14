@@ -1,0 +1,39 @@
+C51 COMPILER V9.56.0.0   MAIN                                                              10/03/2017 16:39:43 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "pwm_register.h"
+   2          
+   3          void main()
+   4          {
+   5   1        enable_xsfr();
+   6   1        pwm_clock_speed(0);
+   7   1        set_pwm_period(0x800);
+   8   1        set_pwm0_T1_T2_point(0x100,0x700);
+   9   1        set_pwm1_T1_T2_point(0x780,0x80);
+  10   1        enable_pwm0();
+  11   1        enable_pwm1();
+  12   1        disable_xsfr();
+  13   1        enable_pwm();
+  14   1        while (1);
+  15   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     51    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
