@@ -1,0 +1,99 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/10/2017  22:00:31  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE main.obj TO top RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  top (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?MAIN
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+            CODE    0006H     0005H     UNIT         ?C_INITSEG
+                    000BH     0008H                  *** GAP ***
+            CODE    0013H     0003H     ABSOLUTE     
+            CODE    0016H     008CH     UNIT         ?C_C51STARTUP
+            CODE    00A2H     0010H     UNIT         ?PR?SERVIVCE_INT0?MAIN
+            CODE    00B2H     000FH     UNIT         ?PR?SERVIVCE_INT1?MAIN
+            CODE    00C1H     000FH     UNIT         ?PR?MAIN?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   top (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+
+
+SYMBOL TABLE OF MODULE:  top (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00E8H         PUBLIC        P6
+  B:00A8H.7       PUBLIC        EA
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/10/2017  22:00:31  PAGE 2
+
+
+  C:00C1H         PUBLIC        main
+  C:00A2H         PUBLIC        servivce_int0
+  C:00B2H         PUBLIC        servivce_int1
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  B:00A8H.2       PUBLIC        EX1
+  B:0088H.2       PUBLIC        IT1
+  D:0008H         PUBLIC        i
+  -------         PROC          SERVIVCE_INT0
+  C:00A2H         LINE#         6
+  C:00A4H         LINE#         8
+  C:00ACH         LINE#         9
+  C:00AFH         LINE#         10
+  -------         ENDPROC       SERVIVCE_INT0
+  -------         PROC          SERVIVCE_INT1
+  C:00B2H         LINE#         12
+  C:00B4H         LINE#         14
+  C:00BCH         LINE#         15
+  C:00BEH         LINE#         16
+  -------         ENDPROC       SERVIVCE_INT1
+  -------         PROC          MAIN
+  C:00C1H         LINE#         18
+  C:00C1H         LINE#         19
+  C:00C1H         LINE#         20
+  C:00C3H         LINE#         21
+  C:00C5H         LINE#         22
+  C:00C7H         LINE#         23
+  C:00C9H         LINE#         24
+  C:00CBH         LINE#         25
+  C:00CEH         LINE#         26
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+Program Size: data=11.0 xdata=0 code=200
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
