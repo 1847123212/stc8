@@ -1,0 +1,77 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/10/2017  18:47:00  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE main.obj TO top RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+
+
+LINK MAP OF MODULE:  top (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     012CH     UNIT         MY_PROG
+
+
+
+SYMBOL TABLE OF MODULE:  top (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SEGMENT       MY_PROG
+  C:0114H         SYMBOL        COUNT_DEC
+  C:0120H         SYMBOL        COUNT_INC
+  D:0083H         SYMBOL        DPH
+  B:00A8H.7       SYMBOL        EA
+  B:00A8H.0       SYMBOL        EX0
+  B:00A8H.2       SYMBOL        EX1
+  B:0088H.0       SYMBOL        IT0
+  B:0088H.2       SYMBOL        IT1
+  C:0111H         SYMBOL        LOOP
+  C:0100H         SYMBOL        MAIN
+  D:00E8H         SYMBOL        P6
+  D:0081H         SYMBOL        SP
+  C:0000H         LINE#         13
+  C:0003H         LINE#         15
+  C:0013H         LINE#         17
+  C:0100H         LINE#         21
+  C:0103H         LINE#         22
+  C:0105H         LINE#         23
+  C:0107H         LINE#         24
+  C:0109H         LINE#         25
+  C:010BH         LINE#         26
+  C:010DH         LINE#         27
+  C:010FH         LINE#         28
+  C:0111H         LINE#         29
+  C:0114H         LINE#         37
+  C:0116H         LINE#         38
+  C:0118H         LINE#         39
+  C:0119H         LINE#         40
+  C:011BH         LINE#         41
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/10/2017  18:47:00  PAGE 2
+
+
+  C:011DH         LINE#         42
+  C:011FH         LINE#         43
+  C:0120H         LINE#         50
+  C:0122H         LINE#         51
+  C:0124H         LINE#         52
+  C:0125H         LINE#         53
+  C:0127H         LINE#         54
+  C:0129H         LINE#         55
+  C:012BH         LINE#         56
+  -------         ENDMOD        MAIN
+
+Program Size: data=8.0 xdata=0 code=300
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

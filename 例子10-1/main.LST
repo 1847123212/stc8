@@ -1,0 +1,158 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 09/10/2017 18:47:00 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE main.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;*************  ¹¦ÄÜËµÃ÷        **************
+
+                       2     
+
+                       3     ;³ÌÐòÊ¹ÓÃP6À´ÏÔÊ¾µÄ¼ÆÊÖµ
+
+                       4     
+
+                       5     ;******************************************
+
+                       6     ;******************************************
+
+                       7     ;¶¨ÒåP6¶Ë¿ÚµÄµØÖ·
+
+  00E8                 8     P6        DATA 0E8H
+
+                       9     ;******************************************
+
+                      10             
+
+                      11             my_prog  SEGMENT CODE
+
+----                  12                          RSEG my_prog
+
+0000 020000   F       13                          LJMP main
+
+0003                  14                              ORG 0x0003
+
+0003 020000   F       15                              LJMP count_dec
+
+0013                  16                              ORG 0x0013
+
+0013 020000   F       17                          LJMP count_inc
+
+0100                  18                  ORG 0x100          
+
+0100                  19     Main:
+
+                      20                 USING   0
+
+0100 758140           21             MOV SP, #40H
+
+0103 D288             22                 SETB IT0
+
+0105 D28A             23                     SETB IT1
+
+0107 D2A8             24                 SETB EX0
+
+0109 D2AA             25                     SETB EX1
+
+010B D2AF             26                 SETB EA
+
+010D 74FF             27                     MOV  A,#0FFH
+
+010F F5E8             28                     MOV  P6,A
+
+0111 020000   F       29     loop:   ljmp loop
+
+                      30     ;********************************
+
+                      31     
+
+                      32     ;//==============================
+
+                      33     ;// º¯Ê: count_dec
+
+                      34     ;// ÃèÊö: ÖÐ¶Ï·þÎñ×Ó³ÌÐò
+
+                      35     ;//==============================
+
+0114                  36     count_dec:  
+
+0114 C083             37             PUSH DPH
+
+0116 C002             38                 PUSH 02H
+
+0118 14               39             DEC  A
+
+0119 F5E8             40                     MOV  P6,A
+
+011B D083             41                 POP  DPH
+
+011D D002             42                     POP  02H
+
+011F 32               43                 RETI
+
+                      44                     
+
+                      45     ;//==============================
+
+                      46     ;// º¯Ê: count_inc
+
+                      47     ;// ÃèÊö: ÖÐ¶Ï·þÎñ×Ó³ÌÐò
+
+                      48     ;//==============================               
+
+0120                  49     count_inc:  
+
+0120 C083             50             PUSH DPH
+
+0122 C002             51                 PUSH 02H
+
+0124 04               52             INC  A
+
+0125 F5E8             53                     MOV  P6,A
+
+0127 D083             54                 POP  DPH
+
+0129 D002             55                     POP  02H
+
+012B 32               56                 RETI
+
+                      57                     
+
+                      58     END
+
+A51 MACRO ASSEMBLER  MAIN                                                                 09/10/2017 18:47:00 PAGE     2
+
+                             
+
+                             
+
+A51 MACRO ASSEMBLER  MAIN                                                                 09/10/2017 18:47:00 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+COUNT_DEC. . . . .  C ADDR   0114H   R   SEG=MY_PROG
+COUNT_INC. . . . .  C ADDR   0120H   R   SEG=MY_PROG
+DPH. . . . . . . .  D ADDR   0083H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+EX1. . . . . . . .  B ADDR   00A8H.2 A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . .  B ADDR   0088H.2 A   
+LOOP . . . . . . .  C ADDR   0111H   R   SEG=MY_PROG
+MAIN . . . . . . .  C ADDR   0100H   R   SEG=MY_PROG
+MY_PROG. . . . . .  C SEG    012CH       REL=UNIT
+P6 . . . . . . . .  D ADDR   00E8H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
