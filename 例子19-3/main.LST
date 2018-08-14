@@ -1,0 +1,51 @@
+C51 COMPILER V9.56.0.0   MAIN                                                              10/06/2017 17:27:28 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include "ccp.h"
+   2          
+   3          void PCA_int() interrupt 7 using 1
+   4          {
+   5   1        CCF0=0;
+   6   1        CL=0;
+   7   1        CH=0;
+   8   1        P6=~P6;
+   9   1      }
+  10          
+  11          void main()
+  12          {
+  13   1        P_SW2=0x80;                
+  14   1        CLKDIV=255;              
+  15   1        P_SW2=0x00;               
+  16   1        P6=0;
+  17   1        P_SW1=0x20;
+  18   1        CCON=0;
+  19   1        CL=0;
+  20   1        CH=0;
+  21   1        CMOD=0x00;
+  22   1        CCAP0L=value;
+  23   1        CCAP0H=value>>8;
+  24   1        CCAPM0=0x4d;
+  25   1        CR=1;
+  26   1        EA=1;
+  27   1        while(1);
+  28   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     52    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
