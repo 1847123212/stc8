@@ -1,0 +1,107 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/25/2017  21:53:34  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE main.obj TO top RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  top (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         _DATA_GROUP_
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0037H     UNIT         ?PR?MAIN?MAIN
+            CODE    003AH     000DH     UNIT         ?PR?CMP_INT?MAIN
+            CODE    0047H     000CH     UNIT         ?C_C51STARTUP
+                    0053H     0058H                  *** GAP ***
+            CODE    00ABH     0003H     ABSOLUTE     
+
+
+
+OVERLAY MAP OF MODULE:   top (MAIN)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?PR?CMP_INT?MAIN               0008H    0002H
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  top (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00E8H         PUBLIC        P6
+  B:00A8H.7       PUBLIC        EA
+  C:0003H         PUBLIC        main
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/25/2017  21:53:34  PAGE 2
+
+
+  D:00E6H         PUBLIC        CMPCR1
+  D:00E7H         PUBLIC        CMPCR2
+  C:003AH         PUBLIC        cmp_int
+  -------         PROC          CMP_INT
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:003AH         LINE#         20
+  C:003AH         LINE#         22
+  C:0040H         LINE#         23
+  C:0043H         LINE#         24
+  C:0046H         LINE#         25
+  -------         ENDPROC       CMP_INT
+  -------         PROC          MAIN
+  -------         DO            
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:0003H         LINE#         27
+  C:0003H         LINE#         28
+  C:0003H         LINE#         29
+  C:0006H         LINE#         30
+  C:0008H         LINE#         31
+  C:000AH         LINE#         32
+  C:000CH         LINE#         34
+  C:000FH         LINE#         35
+  C:0012H         LINE#         36
+  C:0015H         LINE#         41
+  C:0018H         LINE#         42
+  C:001BH         LINE#         43
+  C:001DH         LINE#         44
+  C:001DH         LINE#         45
+  C:001DH         LINE#         46
+  C:0022H         LINE#         47
+  C:0022H         LINE#         48
+  C:0030H         LINE#         49
+  C:0033H         LINE#         50
+  C:0035H         LINE#         52
+  C:0038H         LINE#         53
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+Program Size: data=11.0 xdata=0 code=86
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
