@@ -1,0 +1,102 @@
+C51 COMPILER V9.56.0.0   PWM_REGISTER                                                      10/03/2017 20:57:38 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE PWM_REGISTER
+OBJECT MODULE PLACED IN .\Objects\pwm_register.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE pwm_register.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\pwm_register.lst) TABS(2) OBJECT(.\Objects\pwm_register.obj)
+
+line level    source
+
+   1          #include "pwm_register.h"
+   2          
+   3          void enable_xsfr(void)
+   4          {
+   5   1        P_SW2 = 0x80;
+   6   1      }
+   7          
+   8          void pwm_clock_speed(unsigned char a)
+   9          {
+  10   1        PWMCKS |=a; 
+  11   1      }
+  12          
+  13          void set_pwm_period(unsigned int a)
+  14          {
+  15   1          PWMC = a; 
+  16   1      }
+  17          
+  18          void set_pwm1_T1_T2_point(unsigned int h,unsigned l)
+  19          {
+  20   1        PWM1T1=h; 
+  21   1        PWM1T2=l; 
+  22   1      }
+  23          
+  24          void set_pwm3_T1_T2_point(unsigned int h,unsigned l)
+  25          {
+  26   1        PWM3T1=h; 
+  27   1        PWM3T2=l; 
+  28   1      }
+  29          
+  30          void set_pwm5_T1_T2_point(unsigned int h,unsigned l)
+  31          {
+  32   1        PWM5T1=h; 
+  33   1        PWM5T2=l; 
+  34   1      }
+  35          void set_pwm7_T1_T2_point(unsigned int h,unsigned l)
+  36          {
+  37   1        PWM7T1=h; 
+  38   1        PWM7T2=l; 
+  39   1      }
+  40          
+  41          void enable_pwm1(void)
+  42          {
+  43   1        PWM1CR= 0x80; 
+  44   1      } 
+  45          
+  46          void enable_pwm3(void)
+  47          {
+  48   1        PWM3CR= 0x80; 
+  49   1      } 
+  50          
+  51          void enable_pwm5(void)
+  52          {
+  53   1        PWM5CR= 0x80; 
+  54   1      } 
+C51 COMPILER V9.56.0.0   PWM_REGISTER                                                      10/03/2017 20:57:38 PAGE 2   
+
+  55          
+  56          void enable_pwm7(void)
+  57          {
+  58   1        PWM7CR= 0x80; 
+  59   1      } 
+  60          
+  61          
+  62          void enable_pwm(void)
+  63          {
+  64   1        PWMCR= 0x80;  
+  65   1      } 
+  66          
+  67          void pwm_ini_voltage()
+  68          {
+  69   1        
+  70   1      }
+  71          void disable_xsfr(void)
+  72          {
+  73   1        P_SW2 = 0x00;
+  74   1      }
+  75          
+  76          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    117    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
